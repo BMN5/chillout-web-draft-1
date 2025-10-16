@@ -1,0 +1,150 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* 🚫 Prevent scroll */
+  font-family: "Poppins", sans-serif;
+}
+
+.todo-page {
+  min-height: 100vh;
+  width: 100%;
+  background: url("/to-do-bg.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Dark overlay */
+.todo-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 0;
+}
+
+.todo-container {
+  position: relative;
+  z-index: 1;
+  background: rgba(20, 20, 20, 0.85);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  color: white;
+  width: 95%;
+  max-width: 1000px;
+  margin-top: 100px; /* ⬅️ Push content below Navbar */
+}
+
+
+/* Form */
+.todo-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.todo-form input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.todo-form button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #00aaff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.todo-form button:hover {
+  background: #0077cc;
+}
+
+/* Two-column layout */
+.todo-lists {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.task-column {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 12px;
+  max-height: 400px;
+  overflow-y: auto; /* scroll inside column */
+}
+
+.task-column h3 {
+  margin-top: 0;
+  color: #ffd700;
+}
+
+/* Task list */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 6px 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.todo-item input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.todo-item span {
+  flex: 1;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.todo-item button {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.todo-item button:hover {
+  transform: scale(1.2);
+}
+
+/* Completed list dimmed */
+.todo-list.completed {
+  opacity: 0.8;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .todo-lists {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,189 @@
+.home-container {
+  padding: 20px;
+  padding-top: 100px; /* added extra top padding for navbar */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: url("/download.jpg") no-repeat center center/cover;
+  background-size: cover;
+  color: #333;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Welcome Section */
+.welcome-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.welcome-section h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.welcome-section p {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-top: 10px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Content Layout: Todo + Games */
+.content-section {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center; /* horizontal centering */
+  flex: 1;
+  flex-wrap: wrap; /* allow wrapping on smaller screens */
+  align-items: flex-start; /* keep ToDo scroll independent */
+  margin-top: 20px; /* extra spacing from welcome section */
+}
+
+/* Todo Section (Left Half) */
+.todo-section {
+  flex: 0.6;
+  min-width: 250px;
+  max-width: 350px;
+  border-radius: 15px;
+  padding: 20px;
+  background: url("/to-do.jpg") no-repeat center center/cover;
+  position: relative;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  max-height: 500px; /* fixed height for scroll */
+  overflow-y: auto;  /* scrollable */
+}
+
+/* Overlay to dim background */
+.todo-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  border-radius: 15px;
+  z-index: 0;
+}
+
+.todo-section * {
+  position: relative;
+  z-index: 1;
+}
+
+.todo-section h2 {
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+/* Todo List Styling */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+.todo-item {
+  background: rgba(255,255,255,0.85);
+  color: #333;
+  margin-bottom: 10px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  transition: background 0.2s ease;
+}
+
+.todo-item:hover {
+  background: #f0f8ff;
+}
+
+.empty-msg {
+  text-align: center;
+  font-style: italic;
+  color: #f1f1f1;
+}
+
+.todo-link-btn {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ffd700;
+  transition: color 0.2s;
+}
+
+.todo-link-btn:hover {
+  color: #ffbf00;
+}
+
+/* Games Section (Right Half) */
+.games-grid {
+  flex: 0.45;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  justify-content: center; /* center horizontally */
+  max-width: 500px;
+  align-self: flex-start; /* align top with ToDo div */
+}
+
+.game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 220px;   /* bigger size */
+  height: 220px;  /* bigger size */
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.game-card span {
+  padding: 10px 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Mobile Layout */
+@media (max-width: 900px) {
+  .content-section {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .todo-section {
+    max-height: none;
+    width: 90%;
+  }
+
+  .games-grid {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    gap: 20px;
+  }
+
+  .game-card {
+    width: 180px;
+    height: 180px;
+  }
+}

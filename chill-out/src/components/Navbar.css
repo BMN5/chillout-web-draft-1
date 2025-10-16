@@ -1,0 +1,134 @@
+/* Base Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+.app-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #a3e4ff;
+}
+
+/* Desktop links */
+.navbar-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ffb6d9;
+}
+
+.user-name {
+  margin-right: 12px;
+  font-weight: 500;
+}
+
+.signout-btn {
+  background: #ff4d6d;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.signout-btn:hover {
+  background: #ff3357;
+}
+
+/* Hamburger icon (Mobile only) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* Mobile dropdown menu */
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+
+.mobile-menu.active {
+  display: flex;
+}
+
+/* Games dropdown */
+.games-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 12px;
+  margin-top: 8px;
+  border-left: 2px solid #a3e4ff;
+}
+
+.games-toggle {
+  text-align: left;
+  font-weight: 600;
+}
+
+/* Responsive Rules */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .mobile-only {
+    display: flex;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu,
+  .mobile-only {
+    display: none !important;
+  }
+}

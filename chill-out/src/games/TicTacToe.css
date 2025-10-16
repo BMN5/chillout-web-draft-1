@@ -1,0 +1,152 @@
+.tic-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Dimmed background using overlay */
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("/tictactoe-bg.png") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed; /* Non-scrollable */
+  overflow: hidden; /* Prevent scrolling */
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.tic-container {
+  background-color: rgba(30, 30, 30, 0.85);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 50px 4px 20px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  width: 90%;
+  max-width: 450px; /* increased size */
+  border: 1px solid #333;
+}
+
+.tic-title {
+  font-size: 3em; /* bigger title */
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #4CAF50;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  background-color: #2a2a2a;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #444;
+}
+
+.score {
+  font-size: 1em;
+  font-weight: 500;
+  color: #bdbdbd;
+}
+
+.status {
+  font-size: 1.3em; /* slightly bigger */
+  font-weight: bold;
+  margin-bottom: 20px;
+  height: 28px;
+  color: #03a9f4;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 420px; /* increased size */
+  margin: 20px auto;
+}
+
+.cell {
+  aspect-ratio: 1 / 1; /* always square */
+  background-color: #333;
+  border: 2px solid #555;
+  color: #fff;
+  font-size: 3em; /* increased font for bigger box */
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.cell:not(.filled):hover {
+  background-color: #444;
+}
+
+.cell:active {
+  transform: scale(0.95);
+}
+
+.filled {
+  cursor: not-allowed;
+}
+
+.cell:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(3, 169, 244, 0.5);
+}
+
+.winner-cell {
+  background-color: #4CAF50 !important;
+  color: #fff !important;
+  animation: win-glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes win-glow {
+  from { box-shadow: 0 0 8px #4CAF50, 0 0 15px #4CAF50; }
+  to { box-shadow: 0 0 20px #4CAF50, 0 0 30px #4CAF50; }
+}
+
+.reset-btn {
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  padding: 14px 28px; /* larger button */
+  font-size: 1.1em;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.reset-btn:hover {
+  background-color: #e64a19;
+}
+
+.reset-btn:active {
+  transform: scale(0.98);
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 480px) {
+  .tic-container {
+    padding: 30px;
+  }
+  .board {
+    gap: 8px;
+    max-width: 95%;
+  }
+  .cell {
+    font-size: 2.2em;
+  }
+  .tic-title {
+    font-size: 2.5em;
+  }
+  .status {
+    font-size: 1.1em;
+  }
+}
